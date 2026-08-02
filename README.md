@@ -26,6 +26,32 @@ Expected sanity target from upstream documentation:
 ELF-B, OpenWebText, 32-step SDE: Gen. PPL approximately 24, entropy approximately 5.15
 ```
 
+## Colab TPU runner
+
+Initial Colab-accessible TPU testing is provided at:
+
+```text
+notebooks/MODULUS_ELF_Colab_TPU_Runner.ipynb
+```
+
+The notebook stages the workflow as:
+
+1. clone this overlay branch;
+2. prepare upstream `lillian039/ELF`;
+3. install upstream JAX/TPU requirements;
+4. verify `jax.devices()` sees TPU devices;
+5. run a smoke-sized official ELF-B checkpoint generation pass;
+6. apply overlay files and run a TPU/JIT geometry-helper smoke test;
+7. optionally run the full 1,000-sample ELF-B checkpoint evaluation.
+
+Runner guide:
+
+```text
+docs/COLAB_TPU_RUNNER.md
+```
+
+Smoke output is not paper-comparable evidence. The paper-comparable gate remains the full upstream ELF-B OpenWebText checkpoint evaluation.
+
 ## MODULUS intervention discipline
 
 The first MODULUS branch must be minimal and falsifiable:
@@ -38,8 +64,9 @@ The first MODULUS branch must be minimal and falsifiable:
 ## Repository layout
 
 ```text
-docs/       governed work package, patch map, acceptance rubric
-scripts/    local reproduction and overlay setup commands
+docs/       governed work package, patch map, acceptance rubric, Colab TPU runner guide
+notebooks/  Colab-accessible TPU runner notebook
+scripts/    local, Colab, and overlay setup commands
 overlays/   proposed JAX source/config additions
 codex/      implementation prompt for a coding agent
 ```
