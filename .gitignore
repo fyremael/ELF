@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ELF outputs
+outputs/
+wandb/
+upstream_elf/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
